@@ -2389,6 +2389,13 @@ body {
   border-color: rgb(55 88 249 / var(--tw-border-opacity));
 }
 
+@media (min-width: 100px){
+  .xs\:py-4{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
 @media (min-width: 540px){
   .sm\:left-9{
     left: 2.25rem;
