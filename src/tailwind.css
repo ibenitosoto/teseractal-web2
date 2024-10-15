@@ -27,6 +27,7 @@
 .sticky #navbarCollapse li > a {
   @apply text-dark dark:text-white hover:text-primary dark:hover:text-primary hover:opacity-100;
 }
+
 #navbarCollapse li .ud-menu-scroll.active {
   @apply opacity-70;
 }
