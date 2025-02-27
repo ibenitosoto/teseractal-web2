@@ -3,23 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        teseractal
-      </title>
-      <link
-        rel="shortcut icon"
-        href="assets/images/favicon.png"
-        type="image/x-icon"
-      />
-      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="assets/css/animate.css" />
-      <link rel="stylesheet" href="assets/css/tailwind.css" />
-  
-      <!-- ==== WOW JS ==== -->
-      <script src="assets/js/wow.min.js"></script>
-      <script>
-        new WOW().init();
-      </script>
+    <title>Modern Portfolio Gallery</title>
     <style>
         * {
             margin: 0;
@@ -29,8 +13,8 @@
         }
 
         body {
-            background-color: #ffffff;
-            color: #333333;
+            background-color: #0f0f0f;
+            color: #fff;
             overflow-x: hidden;
         }
 
@@ -42,7 +26,6 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            background-color: #f8f8f8;
         }
 
         h1 {
@@ -51,7 +34,6 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1s ease forwards;
-            color: #333333;
         }
 
         p.subtitle {
@@ -61,7 +43,6 @@
             animation: fadeUp 1s 0.3s ease forwards;
             max-width: 600px;
             line-height: 1.6;
-            color: #666666;
         }
 
         .scroll-indicator {
@@ -76,12 +57,11 @@
         .scroll-indicator svg {
             width: 30px;
             height: 30px;
-            fill: #888888;
+            fill: #fff;
         }
 
         .gallery {
             padding: 2rem;
-            background-color: #ffffff;
         }
 
         .gallery-container {
@@ -101,12 +81,11 @@
             opacity: 0;
             transform: translateY(50px);
             transition: transform 0.5s ease, box-shadow 0.5s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .gallery-item:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             z-index: 1;
         }
 
@@ -126,7 +105,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(255, 255, 255, 0.9));
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
             padding: 1.5rem;
             transform: translateY(100%);
             transition: transform 0.3s ease;
@@ -139,12 +118,11 @@
         .gallery-item h3 {
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
-            color: #333333;
         }
 
         .gallery-item p {
             font-size: 0.9rem;
-            color: #666666;
+            opacity: 0.8;
         }
 
         .fullscreen-view {
@@ -153,7 +131,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             display: flex;
             justify-content: center;
@@ -175,7 +153,6 @@
             border-radius: 4px;
             transform: scale(0.9);
             transition: transform 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .fullscreen-view.active .fullscreen-image {
@@ -188,7 +165,7 @@
             right: 2rem;
             background: none;
             border: none;
-            color: #333333;
+            color: white;
             font-size: 2rem;
             cursor: pointer;
         }
@@ -197,9 +174,9 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.1);
             border: none;
-            color: #333333;
+            color: white;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -211,7 +188,7 @@
         }
 
         .navigation-btn:hover {
-            background: rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .prev-btn {
@@ -229,39 +206,6 @@
             right: 0;
             text-align: center;
             padding: 0 2rem;
-        }
-
-        .image-caption h3 {
-            color: #333333;
-            margin-bottom: 0.5rem;
-        }
-
-        .image-caption p {
-            color: #666666;
-        }
-
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 300px;
-            font-size: 1.5rem;
-            color: #888888;
-        }
-
-        .loading-spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            border-top: 4px solid #555555;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin-right: 15px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         @keyframes fadeUp {
@@ -314,162 +258,9 @@
     </style>
 </head>
 <body>
-        <!-- ====== Navbar Section Start -->
-        <div
-        class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-primary"
-      >
-        <div class="container">
-          <div class="relative -mx-4 flex items-center justify-between">
-            <div class="w-60 max-w-full px-4">
-              <a href="index.html" class="navbar-logo block w-full py-1">
-                <img
-                  src="assets/images/logo/logo-white.svg"
-                  alt="logo"
-                  class="header-logo w-full"
-                />
-              </a>
-            </div>
-            <div class="ml-20 flex w-full items-center justify-between">
-              <div>
-                <button
-                  id="navbarToggler"
-                  class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
-                >
-                  <span
-                    class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-                  <span
-                    class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-                  <span
-                    class="relative my-[6px] block h-[2px] w-[30px] bg-white"
-                  ></span>
-                </button>
-                <nav
-                  id="navbarCollapse"
-                  class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:pl-5 lg:py-0 lg:shadow-none dark:lg:bg-transparent xl:pr-6-pl-20"
-                >
-                  <ul class="block lg:flex 2xl:ml-20">
-  
-                    <li class="group relative">
-                      <a
-                        href="#servicios"
-                        class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:pl-16 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
-                      >
-                        Servicios
-                      </a>
-                    </li>
-                    <li class="group relative">
-                      <a
-                        href="#kitdigital"
-                        class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
-                      >
-                        Kit Digital
-                      </a>
-                    </li>
-                    <li class="group relative">
-                      <a
-                        href="#equipo"
-                        class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
-                      >
-                        Equipo
-                      </a>
-                    </li>
-                    <li class="group relative">
-                      <a
-                        href="#contacto"
-                        class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
-                      >
-                        Contacto
-                      </a>
-                    </li>
-  
-                  </ul>
-                </nav>
-              </div>
-              <div class="flex items-center justify-end pr-16 lg:pr-0 sm:py-4 xs:py-4">
-                <label
-                  for="themeSwitcher"
-                  class="inline-flex cursor-pointer items-center"
-                  aria-label="themeSwitcher"
-                  name="themeSwitcher"
-                >
-                  <input
-                    type="checkbox"
-                    name="themeSwitcher"
-                    id="themeSwitcher"
-                    class="sr-only"
-                  />
-                  <span class="block text-white dark:hidden">
-                    <svg
-                      class="fill-current"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M13.3125 1.50001C12.675 1.31251 12.0375 1.16251 11.3625 1.05001C10.875 0.975006 10.35 1.23751 10.1625 1.68751C9.93751 2.13751 10.05 2.70001 10.425 3.00001C13.0875 5.47501 14.0625 9.11251 12.975 12.525C11.775 16.3125 8.25001 18.975 4.16251 19.0875C3.63751 19.0875 3.22501 19.425 3.07501 19.9125C2.92501 20.4 3.15001 20.925 3.56251 21.1875C4.50001 21.75 5.43751 22.2 6.37501 22.5C7.46251 22.8375 8.58751 22.9875 9.71251 22.9875C11.625 22.9875 13.5 22.5 15.1875 21.5625C17.85 20.1 19.725 17.7375 20.55 14.8875C22.1625 9.26251 18.975 3.37501 13.3125 1.50001ZM18.9375 14.4C18.2625 16.8375 16.6125 18.825 14.4 20.0625C12.075 21.3375 9.41251 21.6 6.90001 20.85C6.63751 20.775 6.33751 20.6625 6.07501 20.55C10.05 19.7625 13.35 16.9125 14.5875 13.0125C15.675 9.56251 15 5.92501 12.7875 3.07501C17.5875 4.68751 20.2875 9.67501 18.9375 14.4Z"
-                      />
-                    </svg>
-                  </span>
-                  <span class="hidden text-white dark:block">
-                    <svg
-                      class="fill-current"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clip-path="url(#clip0_2172_3070)">
-                        <path
-                          d="M12 6.89999C9.18752 6.89999 6.90002 9.18749 6.90002 12C6.90002 14.8125 9.18752 17.1 12 17.1C14.8125 17.1 17.1 14.8125 17.1 12C17.1 9.18749 14.8125 6.89999 12 6.89999ZM12 15.4125C10.125 15.4125 8.58752 13.875 8.58752 12C8.58752 10.125 10.125 8.58749 12 8.58749C13.875 8.58749 15.4125 10.125 15.4125 12C15.4125 13.875 13.875 15.4125 12 15.4125Z"
-                        />
-                        <path
-                          d="M12 4.2375C12.45 4.2375 12.8625 3.8625 12.8625 3.375V1.5C12.8625 1.05 12.4875 0.637497 12 0.637497C11.55 0.637497 11.1375 1.0125 11.1375 1.5V3.4125C11.175 3.8625 11.55 4.2375 12 4.2375Z"
-                        />
-                        <path
-                          d="M12 19.7625C11.55 19.7625 11.1375 20.1375 11.1375 20.625V22.5C11.1375 22.95 11.5125 23.3625 12 23.3625C12.45 23.3625 12.8625 22.9875 12.8625 22.5V20.5875C12.8625 20.1375 12.45 19.7625 12 19.7625Z"
-                        />
-                        <path
-                          d="M18.1125 6.74999C18.3375 6.74999 18.5625 6.67499 18.7125 6.48749L19.9125 5.28749C20.25 4.94999 20.25 4.42499 19.9125 4.08749C19.575 3.74999 19.05 3.74999 18.7125 4.08749L17.5125 5.28749C17.175 5.62499 17.175 6.14999 17.5125 6.48749C17.6625 6.67499 17.8875 6.74999 18.1125 6.74999Z"
-                        />
-                        <path
-                          d="M5.32501 17.5125L4.12501 18.675C3.78751 19.0125 3.78751 19.5375 4.12501 19.875C4.27501 20.025 4.50001 20.1375 4.72501 20.1375C4.95001 20.1375 5.17501 20.0625 5.32501 19.875L6.52501 18.675C6.86251 18.3375 6.86251 17.8125 6.52501 17.475C6.18751 17.175 5.62501 17.175 5.32501 17.5125Z"
-                        />
-                        <path
-                          d="M22.5 11.175H20.5875C20.1375 11.175 19.725 11.55 19.725 12.0375C19.725 12.4875 20.1 12.9 20.5875 12.9H22.5C22.95 12.9 23.3625 12.525 23.3625 12.0375C23.3625 11.55 22.95 11.175 22.5 11.175Z"
-                        />
-                        <path
-                          d="M4.23751 12C4.23751 11.55 3.86251 11.1375 3.37501 11.1375H1.50001C1.05001 11.1375 0.637512 11.5125 0.637512 12C0.637512 12.45 1.01251 12.8625 1.50001 12.8625H3.41251C3.86251 12.8625 4.23751 12.45 4.23751 12Z"
-                        />
-                        <path
-                          d="M18.675 17.5125C18.3375 17.175 17.8125 17.175 17.475 17.5125C17.1375 17.85 17.1375 18.375 17.475 18.7125L18.675 19.9125C18.825 20.0625 19.05 20.175 19.275 20.175C19.5 20.175 19.725 20.1 19.875 19.9125C20.2125 19.575 20.2125 19.05 19.875 18.7125L18.675 17.5125Z"
-                        />
-                        <path
-                          d="M5.32501 4.125C4.98751 3.7875 4.46251 3.7875 4.12501 4.125C3.78751 4.4625 3.78751 4.9875 4.12501 5.325L5.32501 6.525C5.47501 6.675 5.70001 6.7875 5.92501 6.7875C6.15001 6.7875 6.37501 6.7125 6.52501 6.525C6.86251 6.1875 6.86251 5.6625 6.52501 5.325L5.32501 4.125Z"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_2172_3070">
-                          <rect width="24" height="24" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </span>
-                </label>
-  
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- ====== Navbar Section End -->
     <header>
-        <h1 class="wow ">My Portfolio</h1>
-        <p class="wow subtitle">A collection of my best work showcasing creativity, skill, and passion for visual storytelling.</p>
+        <h1>My Portfolio</h1>
+        <p class="subtitle">A collection of my best work showcasing creativity, skill, and passion for visual storytelling.</p>
         <div class="scroll-indicator">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
@@ -477,16 +268,13 @@
         </div>
     </header>
 
-    <section class="wow fadeInUp gallery">
+    <section class="gallery">
         <div class="gallery-container">
-            <div class="loading">
-                <div class="loading-spinner"></div>
-                <span>Loading gallery...</span>
-            </div>
+            <!-- Gallery items will be populated dynamically -->
         </div>
     </section>
 
-    <div class="wow fadeInUp fullscreen-view">
+    <div class="fullscreen-view">
         <img src="" alt="" class="fullscreen-image">
         <button class="close-btn">&times;</button>
         <button class="navigation-btn prev-btn">&lt;</button>
@@ -498,270 +286,228 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const galleryContainer = document.querySelector('.gallery-container');
-            
-            // Function to fetch and display images from the repository
-            async function loadGalleryImages() {
-                try {
-                    // Clear loading indicator
-                    galleryContainer.innerHTML = '';
-                    
-                    // Define the path to the images folder - adjust if necessary
-                    const imagesPath = 'images/renders/';
-                    
-                    // Get a list of all images (in a real environment, this would be done server-side)
-                    // This is a simulation since we can't actually access filesystem in a browser
-                    // In a real implementation, you'd need a server endpoint that returns the file list
-                    
-                    // Simulating file discovery with a fetch request
-                    // In a real implementation, you would replace this with an actual API call
-                    // that returns the list of images in your repository's images/renders folder
-                    
-                    // For demonstration, let's simulate discovering image files
-                    // In production, replace this with actual server-side logic
-                    const imageFiles = await simulateFileDiscovery(imagesPath);
-                    
-                    // Randomly shuffle the array of images
-                    const shuffledImages = shuffleArray(imageFiles);
-                    
-                    // Populate the gallery with the images
-                    populateGallery(shuffledImages);
-                    
-                    // Initialize scroll animations after gallery is populated
-                    observeElements();
-                } catch (error) {
-                    console.error('Error loading gallery images:', error);
-                    galleryContainer.innerHTML = '<div class="error">Error loading images. Please try again later.</div>';
-                }
-            }
-            
-            // Function to simulate file discovery (in production, replace with actual API)
-            async function simulateFileDiscovery(folderPath) {
-                // In a real implementation, you would make an API call to your backend
-                // that would list the files in the images/renders directory
+        // Function to fetch and parse images from the images/renders folder
+        async function loadImagesFromFolder() {
+            try {
+                // This is where you'd typically use a server-side script to get the list of images
+                // Since this is a static site, we're simulating the process by listing image files
                 
-                // For demonstration purposes, simulating some image files
-                // This would be replaced with actual server-side file discovery
-                return [
-                    { 
-                        path: folderPath + 'proyecto-oltra-infografias-interiores.jpg',
-                        filename: 'Proyecto Oltra - Infografias interiores.jpg' 
-                    },
-                    { 
-                        path: folderPath + 'casa-moderna-render-exterior.jpg',
-                        filename: 'Casa Moderna - Render exterior.jpg' 
-                    },
-                    { 
-                        path: folderPath + 'apartamento-lujo-vista-panoramica.jpg',
-                        filename: 'Apartamento Lujo - Vista panoramica.jpg' 
-                    },
-                    { 
-                        path: folderPath + 'oficina-corporativa-espacio-colaborativo.jpg',
-                        filename: 'Oficina Corporativa - Espacio colaborativo.jpg' 
-                    },
-                    { 
-                        path: folderPath + 'residencia-minimalista-espacios-abiertos.jpg',
-                        filename: 'Residencia Minimalista - Espacios abiertos.jpg' 
-                    },
-                    { 
-                        path: folderPath + 'centro-comercial-area-comun.jpg',
-                        filename: 'Centro Comercial - Area comun.jpg' 
-                    },
-                    { 
-                        path: folderPath + 'hotel-boutique-lobby-principal.jpg',
-                        filename: 'Hotel Boutique - Lobby principal.jpg' 
-                    },
-                    { 
-                        path: folderPath + 'villa-costera-vista-al-mar.jpg',
-                        filename: 'Villa Costera - Vista al mar.jpg' 
-                    }
+                // List of image files in the images/renders folder
+                // In a real implementation, this would be generated by the server or a build script
+                const imageFiles = [
+                    "Proyecto Oltra - Infografias interiores.jpg",
+                    "Casa Moderna - Renders exteriores.jpg",
+                    "Apartamento Minimalista - Cocina y sala de estar.jpg",
+                    "Villa Luz - Vista panorámica de jardín.jpg",
+                    "Edificio Torres - Fachada principal nocturna.jpg",
+                    "Loft Industrial - Espacio abierto con detalles.jpg",
+                    "Residencia Familiar - Áreas comunes.jpg",
+                    "Centro Comercial Plaza - Renders conceptuales.jpg",
+                    "Hotel Boutique - Habitaciones y lobby.jpg",
+                    "Oficinas Creativas - Espacios de trabajo colaborativo.jpg"
+                    // Add more image filenames as needed
                 ];
-            }
-            
-            // Function to shuffle array (for random image ordering)
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-                return array;
-            }
-            
-            // Function to extract title and description from filename
-            function extractTitleAndDescription(filename) {
-                // Remove file extension
-                const nameWithoutExtension = filename.replace(/\.[^/.]+$/, "");
                 
-                // Split by the first dash with spaces around it
-                const parts = nameWithoutExtension.split(/\s+-\s+/);
+                // Shuffle the array to display images in random order
+                const shuffledImages = shuffleArray(imageFiles);
                 
-                if (parts.length >= 2) {
-                    return {
-                        title: parts[0],
-                        description: parts[1]
-                    };
-                } else {
-                    // If no dash is found, use the entire name as title
-                    return {
-                        title: nameWithoutExtension,
-                        description: ""
-                    };
-                }
-            }
-            
-            // Function to populate the gallery with images
-            function populateGallery(imageFiles) {
-                // Create portfolio items from the image files
-                const portfolioItems = imageFiles.map((file, index) => {
-                    const { title, description } = extractTitleAndDescription(file.filename);
+                // Create portfolio items from image files
+                const portfolioItems = shuffledImages.map((filename, index) => {
+                    // Split filename by dash to get title and description
+                    const [title, description] = parseFilename(filename);
+                    
                     return {
                         id: index + 1,
-                        image: file.path,
+                        image: `images/renders/${filename}`,
+                        filename: filename,
                         title: title,
-                        description: description,
-                        filename: file.filename
+                        description: description
                     };
                 });
                 
-                // Create gallery items
-                portfolioItems.forEach(item => {
-                    const galleryItem = document.createElement('div');
-                    galleryItem.className = 'gallery-item';
-                    galleryItem.dataset.id = item.id;
-                    
-                    galleryItem.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}">
-                        <div class="overlay">
-                            <h3>${item.title}</h3>
-                            <p>${item.description}</p>
-                        </div>
-                    `;
-                    
-                    galleryContainer.appendChild(galleryItem);
-                });
-                
-                // Set up fullscreen view functionality
-                setupFullscreenView(portfolioItems);
+                return portfolioItems;
+            } catch (error) {
+                console.error("Error loading images:", error);
+                return [];
+            }
+        }
+        
+        // Function to parse filename into title and description
+        function parseFilename(filename) {
+            // Remove file extension
+            const nameWithoutExtension = filename.replace(/\.[^/.]+$/, "");
+            
+            // Split by dash
+            const parts = nameWithoutExtension.split(" - ");
+            
+            // If there's a dash, use the parts as title and description
+            if (parts.length > 1) {
+                return [parts[0], parts.slice(1).join(" - ")];
             }
             
-            // Function to handle fullscreen view
-            function setupFullscreenView(portfolioItems) {
-                const fullscreenView = document.querySelector('.fullscreen-view');
-                const fullscreenImage = document.querySelector('.fullscreen-image');
-                const captionTitle = document.querySelector('.image-caption h3');
-                const captionDesc = document.querySelector('.image-caption p');
-                const closeBtn = document.querySelector('.close-btn');
-                const prevBtn = document.querySelector('.prev-btn');
-                const nextBtn = document.querySelector('.next-btn');
-                let currentIndex = 0;
+            // If no dash, use the whole name as title and empty description
+            return [nameWithoutExtension, ""];
+        }
+        
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+        
+        // Populate gallery with random images
+        async function populateGallery() {
+            const galleryContainer = document.querySelector('.gallery-container');
+            const portfolioItems = await loadImagesFromFolder();
+            
+            if (portfolioItems.length === 0) {
+                galleryContainer.innerHTML = '<p>No images found</p>';
+                return;
+            }
+            
+            portfolioItems.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.dataset.id = item.id;
                 
-                // Open fullscreen view when clicking on a gallery item
-                document.querySelectorAll('.gallery-item').forEach(item => {
-                    item.addEventListener('click', () => {
-                        const id = parseInt(item.dataset.id);
-                        const portfolioItem = portfolioItems.find(item => item.id === id);
-                        currentIndex = portfolioItems.indexOf(portfolioItem);
-                        
-                        updateFullscreenContent();
-                        fullscreenView.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    });
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="overlay">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+                
+                galleryContainer.appendChild(galleryItem);
+            });
+            
+            // Set up fullscreen view functionality
+            setupFullscreenView(portfolioItems);
+            
+            // Observe elements for animations
+            observeElements();
+        }
+        
+        // Handle scroll animations
+        const observeElements = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
                 });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                observer.observe(item);
+                // Add staggered delay for nicer animation
+                const delay = 0.1 * Array.from(document.querySelector('.gallery-container').children).indexOf(item);
+                item.style.transitionDelay = `${delay}s`;
+            });
+        };
+
+        // Set up fullscreen view functionality
+        function setupFullscreenView(portfolioItems) {
+            const fullscreenView = document.querySelector('.fullscreen-view');
+            const fullscreenImage = document.querySelector('.fullscreen-image');
+            const captionTitle = document.querySelector('.image-caption h3');
+            const captionDesc = document.querySelector('.image-caption p');
+            const closeBtn = document.querySelector('.close-btn');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentIndex = 0;
+
+            // Open fullscreen view when clicking on a gallery item
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const id = parseInt(item.dataset.id);
+                    const portfolioItem = portfolioItems.find(item => item.id === id);
+                    currentIndex = portfolioItems.indexOf(portfolioItem);
+                    
+                    updateFullscreenContent();
+                    fullscreenView.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Update fullscreen content based on current index
+            function updateFullscreenContent() {
+                const item = portfolioItems[currentIndex];
+                fullscreenImage.src = item.image;
+                fullscreenImage.alt = item.title;
+                captionTitle.textContent = item.title;
+                captionDesc.textContent = item.description;
+            }
+
+            // Close fullscreen view
+            closeBtn.addEventListener('click', () => {
+                fullscreenView.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Navigation buttons
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+                updateFullscreenContent();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % portfolioItems.length;
+                updateFullscreenContent();
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!fullscreenView.classList.contains('active')) return;
                 
-                // Update fullscreen content
-                function updateFullscreenContent() {
-                    const item = portfolioItems[currentIndex];
-                    fullscreenImage.src = item.image;
-                    fullscreenImage.alt = item.title;
-                    captionTitle.textContent = item.title;
-                    captionDesc.textContent = item.description;
-                }
-                
-                // Close fullscreen view
-                closeBtn.addEventListener('click', () => {
+                if (e.key === 'Escape') {
                     fullscreenView.classList.remove('active');
                     document.body.style.overflow = '';
-                });
-                
-                // Navigation buttons
-                prevBtn.addEventListener('click', () => {
+                } else if (e.key === 'ArrowLeft') {
                     currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
                     updateFullscreenContent();
-                });
-                
-                nextBtn.addEventListener('click', () => {
+                } else if (e.key === 'ArrowRight') {
                     currentIndex = (currentIndex + 1) % portfolioItems.length;
                     updateFullscreenContent();
-                });
+                }
+            });
+
+            // Touch swipe functionality for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            fullscreenView.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            fullscreenView.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    // Swipe left, go to next
+                    currentIndex = (currentIndex + 1) % portfolioItems.length;
+                    updateFullscreenContent();
+                }
                 
-                // Keyboard navigation
-                document.addEventListener('keydown', (e) => {
-                    if (!fullscreenView.classList.contains('active')) return;
-                    
-                    if (e.key === 'Escape') {
-                        fullscreenView.classList.remove('active');
-                        document.body.style.overflow = '';
-                    } else if (e.key === 'ArrowLeft') {
-                        currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
-                        updateFullscreenContent();
-                    } else if (e.key === 'ArrowRight') {
-                        currentIndex = (currentIndex + 1) % portfolioItems.length;
-                        updateFullscreenContent();
-                    }
-                });
-                
-                // Touch swipe functionality
-                let touchStartX = 0;
-                let touchEndX = 0;
-                
-                fullscreenView.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                });
-                
-                fullscreenView.addEventListener('touchend', (e) => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                });
-                
-                function handleSwipe() {
-                    if (touchEndX < touchStartX - 50) {
-                        // Swipe left
-                        currentIndex = (currentIndex + 1) % portfolioItems.length;
-                        updateFullscreenContent();
-                    }
-                    
-                    if (touchEndX > touchStartX + 50) {
-                        // Swipe right
-                        currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
-                        updateFullscreenContent();
-                    }
+                if (touchEndX > touchStartX + 50) {
+                    // Swipe right, go to previous
+                    currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+                    updateFullscreenContent();
                 }
             }
-            
-            // Handle scroll animations
-            const observeElements = () => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = 1;
-                            entry.target.style.transform = 'translateY(0)';
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1 });
-                
-                document.querySelectorAll('.gallery-item').forEach(item => {
-                    observer.observe(item);
-                    // Add staggered delay for nicer animation
-                    const delay = 0.1 * Array.from(galleryContainer.children).indexOf(item);
-                    item.style.transitionDelay = `${delay}s`;
-                });
-            };
-            
-            // Load the gallery images when the page is loaded
-            loadGalleryImages();
-        });
+        }
+
+        // Initialize the gallery when the page loads
+        document.addEventListener('DOMContentLoaded', populateGallery);
     </script>
 </body>
 </html>
